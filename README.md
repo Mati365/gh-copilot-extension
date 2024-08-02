@@ -1,5 +1,10 @@
 # 🤖 Github Copilot Browser Extension
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mati365/gh-copilot-extension?style=flat-square)
+[![GitHub issues](https://img.shields.io/github/issues/mati365/gh-copilot-extension?style=flat-square)](https://github.com/Mati365/gh-copilot-extension/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 An unofficial extension that enables `GitHub Copilot AI` to function within your web browser. 
 
 With the integration of `ChatGPT` into `GitHub Copilot`, you’ll have a unified experience. No need to pay separately for `ChatGPT` and `GitHub Copilot` — you can use `GitHub Copilot` as your all-in-one AI assistant for coding tasks. It combines the strengths of both tools: real-time code suggestions from Copilot and broader development guidance from `ChatGPT`.
