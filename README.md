@@ -1,8 +1,8 @@
 # 🤖 Github Copilot Browser Extension
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mati365/gh-copilot-extension?style=flat-square)
-[![GitHub issues](https://img.shields.io/github/issues/mati365/gh-copilot-extension?style=flat-square)](https://github.com/Mati365/gh-copilot-extension/issues)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mati365/github-copilot-extension?style=flat-square)
+[![GitHub issues](https://img.shields.io/github/issues/mati365/github-copilot-extension?style=flat-square)](https://github.com/Mati365/github-copilot-extension/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 An unofficial extension that enables `GitHub Copilot AI` to function within your web browser. 
@@ -19,7 +19,7 @@ With the integration of `ChatGPT` into `GitHub Copilot`, you’ll have a unified
 
 ## License 📖
 
-gh-copilot-extension
+github-copilot-extension
 Copyright (C) 2024  Mateusz Bagiński
 
 This program is free software: you can redistribute it and/or modify
