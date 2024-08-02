@@ -1,2 +1,4 @@
-# gh-copilot-extension
-An extension that enables running GitHub Copilot in your web browser.
+# Github Copilot Browser Extension
+
+An unofficial extension that enables GitHub Copilot AI to function within your web browser.
+
