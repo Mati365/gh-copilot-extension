@@ -1,7 +1,9 @@
 # 🤖 Github Copilot Browser Extension
 
-An unofficial extension that enables GitHub Copilot AI to function within your web browser.
+An unofficial extension that enables `GitHub Copilot AI` to function within your web browser. 
 
+With the integration of `ChatGPT` into `GitHub Copilot`, you’ll have a unified experience. No need to pay separately for `ChatGPT` and `GitHub Copilot` — you can use `GitHub Copilot` as your all-in-one AI assistant for coding tasks. It combines the strengths of both tools: real-time code suggestions from Copilot and broader development guidance from ChatGPT.
+ 
 ## Goals ✨
 
 1. **Chat Interaction with GitHub Copilot:** Enable users to select and engage in chat conversations with GitHub Copilot directly within their web browser.
