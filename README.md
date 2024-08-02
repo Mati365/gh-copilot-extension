@@ -2,7 +2,7 @@
 
 An unofficial extension that enables `GitHub Copilot AI` to function within your web browser. 
 
-With the integration of `ChatGPT` into `GitHub Copilot`, you’ll have a unified experience. No need to pay separately for `ChatGPT` and `GitHub Copilot` — you can use `GitHub Copilot` as your all-in-one AI assistant for coding tasks. It combines the strengths of both tools: real-time code suggestions from Copilot and broader development guidance from ChatGPT.
+With the integration of `ChatGPT` into `GitHub Copilot`, you’ll have a unified experience. No need to pay separately for `ChatGPT` and `GitHub Copilot` — you can use `GitHub Copilot` as your all-in-one AI assistant for coding tasks. It combines the strengths of both tools: real-time code suggestions from Copilot and broader development guidance from `ChatGPT`.
  
 ## Goals ✨
 
@@ -11,3 +11,21 @@ With the integration of `ChatGPT` into `GitHub Copilot`, you’ll have a unified
 3. **Automated Code Review Responses:** Assist users in responding to code reviews based on AI-generated suggestions.
 4. **Typo Correction and Comment Translation on GitHub:** Automatically correct typos and translate comments within GitHub repositories.
 5. **Code Review Assistance:** Provide support during code reviews.
+
+## License 📖
+
+gh-copilot-extension
+Copyright (C) 2024  Mateusz Bagiński
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
