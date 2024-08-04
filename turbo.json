@@ -4,7 +4,8 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": true
     },
     "manual": {
       "dependsOn": ["build"],
@@ -13,10 +14,10 @@
       "persistent": true
     },
     "lint": {
-      "cache": false
+      "cache": true
     },
     "check:types": {
-      "cache": false
+      "cache": true
     },
     "test": {
       "cache": false
