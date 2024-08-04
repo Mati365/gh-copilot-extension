@@ -1,0 +1,24 @@
+name: CI
+
+on: ['push']
+
+concurrency:
+  group: lint-and-test
+  cancel-in-progress: true
+
+jobs:
+  lint-and-test:
+    name: Lint app and run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 21.x
+          cache: npm
+
+      - run: npm install
+      - run: npm run build
+      - run: npm run check:types
+      - run: npm run lint
+      - run: npm run test

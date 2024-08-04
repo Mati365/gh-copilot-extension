@@ -1,0 +1,86 @@
+env:
+  browser: true
+  es2021: true
+  node: true
+
+extends:
+  - airbnb
+  - airbnb-typescript
+  - plugin:import/recommended
+  - plugin:jsx-a11y/recommended
+  - plugin:react/recommended
+
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  project: ./tsconfig.eslint.json
+
+ignorePatterns:
+  - node_modules
+  - dist
+  - coverage
+  - jest.setup.mjs
+  - jest.config.mjs
+  - prettier.config.mjs
+  - config/**/*.js
+  - config/**/*.mjs
+
+plugins:
+  - import
+  - react
+
+settings:
+  react:
+    version: '18.3'
+
+  import/parsers:
+    '@typescript-eslint/parser': ['.ts', '.tsx']
+
+  import/resolver:
+    typescript:
+      alwaysTryTypes: true
+      project:
+        - './packages/*/tsconfig.eslint.json'
+        - 'tsconfig.eslint.json'
+
+rules:
+  no-continue: off
+  arrow-parens: ['error', 'as-needed']
+  max-len: ['error', 120]
+  quotes: ['error', 'single']
+  implicit-arrow-linebreak: off
+  operator-linebreak: off
+  object-curly-newline: off
+  max-classes-per-file: off
+  no-plusplus: off
+  no-param-reassign: off
+  no-confusing-arrow: off
+  function-paren-newline: off
+  import/no-default-export: 2
+  import/no-extraneous-dependencies: off
+  import/prefer-default-export: off
+  react/jsx-uses-react: off
+  react/react-in-jsx-scope: off
+  react/require-default-props: off
+  react/jsx-props-no-spreading: off
+  react/function-component-definition:
+    [2, { 'namedComponents': 'arrow-function' }]
+  no-console: warn
+  no-restricted-syntax:
+    ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement']
+  '@typescript-eslint/no-throw-literal': off
+  '@typescript-eslint/no-use-before-define': off
+  '@typescript-eslint/consistent-type-definitions': off
+  '@typescript-eslint/strict-boolean-expressions': off
+  '@typescript-eslint/indent': off
+  '@typescript-eslint/consistent-type-imports': 'error'
+  '@typescript-eslint/member-delimiter-style':
+    [
+      'error',
+      {
+        'multiline': { 'delimiter': 'semi', 'requireLast': true },
+        'singleline': { 'delimiter': 'semi', 'requireLast': false },
+        'multilineDetection': 'brackets',
+      },
+    ]

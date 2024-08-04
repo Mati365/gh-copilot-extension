@@ -1,0 +1,30 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "stream",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "manual": {
+      "dependsOn": ["build"],
+      "outputs": ["dist/manual/**"],
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "cache": false
+    },
+    "check:types": {
+      "cache": false
+    },
+    "test": {
+      "cache": false
+    },
+    "test:watch": {
+      "cache": false,
+      "persistent": true
+    }
+  },
+  "globalDependencies": ["tsconfig.json", "prettier.config.mjs"]
+}

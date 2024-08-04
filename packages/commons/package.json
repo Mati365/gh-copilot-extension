@@ -1,0 +1,49 @@
+{
+  "name": "@gh-copilot-ext/commons",
+  "version": "1.0.0",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./test-utils": {
+      "default": "./test/_utils/index.ts"
+    },
+    "./test-utils/globals": {
+      "types": "./test/_utils/globals.d.ts",
+      "default": "./test/_utils/globals.ts"
+    }
+  },
+  "scripts": {
+    "build": "vite build --config ../../config/vite/vite.build.config.ts",
+    "test": "vitest --run --coverage --passWithNoTests --config ../../config/vite/vite.build.config.ts",
+    "test:watch": "vitest --watch --passWithNoTests --config ../../config/vite/vite.build.config.ts",
+    "lint": "eslint --max-warnings=0 src/ test/",
+    "check:types": "tsc --noEmit"
+  },
+  "files": [
+    "src/"
+  ],
+  "dependencies": {
+    "fp-ts": "^2.16.1",
+    "fp-ts-std": "^0.19.1"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "devDependencies": {
+    "fast-deep-equal": "^3.1.3"
+  }
+}
