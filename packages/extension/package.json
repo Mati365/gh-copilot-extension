@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vite build --config ./config/vite.build.config.ts",
     "build:dev": "NODE_ENV=development vite build --config ./config/vite.build.config.ts --mode development",
-    "test": "vitest --run --coverage --passWithNoTests --config ./config/vite.build.config.ts",
+    "test": "vitest --run --passWithNoTests --config ./config/vite.build.config.ts",
     "test:watch": "vitest --watch --passWithNoTests --config ./config/vite.build.config.ts",
     "lint": "(eslint --max-warnings=0 src/) && (web-ext lint --source-dir ./dist/ --pretty)",
     "check:types": "tsc --noEmit",
