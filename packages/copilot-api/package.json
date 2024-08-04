@@ -1,5 +1,5 @@
 {
-  "name": "@gh-copilot-ext/commons",
+  "name": "@gh-copilot-ext/copilot-api",
   "version": "1.0.0",
   "type": "module",
   "private": true,
@@ -17,34 +17,33 @@
         "types": "./dist/index.d.ts",
         "default": "./dist/index.cjs"
       }
-    },
-    "./test-utils": {
-      "default": "./test/_utils/index.ts"
-    },
-    "./test-utils/globals": {
-      "types": "./test/_utils/globals.d.ts",
-      "default": "./test/_utils/globals.ts"
     }
   },
   "scripts": {
     "build": "vite build --config ../../config/vite.build.config.ts",
     "build:dev": "NODE_ENV=development vite build --config ../../config/vite.build.config.ts --mode development",
-    "test": "vitest --run --passWithNoTests --config ../../config/vite.build.config.ts",
+    "test": "vitest --run --coverage --passWithNoTests --config ../../config/vite.build.config.ts",
     "test:watch": "vitest --watch --passWithNoTests --config ../../config/vite.build.config.ts",
-    "lint": "eslint --max-warnings=0 src/ test/",
+    "lint": "eslint --max-warnings=0 src/",
     "check:types": "tsc --noEmit"
   },
   "files": [
+    "dist/",
     "src/"
   ],
   "dependencies": {
-    "fp-ts": "^2.16.1",
-    "fp-ts-std": "^0.19.1"
+    "@gh-copilot-ext/commons": "*",
+    "deep-object-diff": "^1.1.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/uuid": "^10.0.0"
   },
   "publishConfig": {
     "access": "restricted"
-  },
-  "devDependencies": {
-    "fast-deep-equal": "^3.1.3"
   }
 }

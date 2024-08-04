@@ -11,7 +11,7 @@ export default defineConfig({
     lib: {
       entry: 'src/index',
       fileName: 'index',
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     },
     sourcemap: true,
     emptyOutDir: true,

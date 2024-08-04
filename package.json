@@ -19,10 +19,10 @@
     "packages/*"
   ],
   "scripts": {
-    "clean": "find . -type f -name 'vite.config.*.timestamp-*' -ls -delete 2>/dev/null",
+    "clean": "find . -type f -name 'vite.build.config.*.timestamp-*' -ls -delete 1> /dev/null 2>& 1",
     "build": "NODE_ENV=production turbo run build --cache-dir=.turbo",
     "check:types": "turbo check:types --parallel",
-    "dev": "npm run clean && turbo watch build manual",
+    "dev": "npm run clean && NODE_ENV=development turbo watch dev",
     "lint": "turbo lint --parallel",
     "prepare": "husky",
     "test": "turbo run test --parallel",

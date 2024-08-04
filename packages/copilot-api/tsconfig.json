@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["src/"],
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./dist",
+    "paths": {
+      "@ast": ["kernel/ast"],
+      "@ast/*": ["kernel/ast/*"],
+      "@ui": ["ui"],
+      "@ui/*": ["ui/*"],
+      "@kernel/*": ["kernel/*"],
+      "@ot": ["kernel/ot"],
+      "@ot/*": ["kernel/ot/*"],
+      "@test-utils": ["../test/_utils"]
+    }
+  }
+}

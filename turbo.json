@@ -7,9 +7,14 @@
       "outputs": ["dist/**"],
       "cache": true
     },
-    "manual": {
-      "dependsOn": ["build"],
-      "outputs": ["dist/manual/**"],
+    "build:dev": {
+      "dependsOn": ["^build:dev"],
+      "outputs": ["dist/**"],
+      "cache": false
+    },
+    "dev": {
+      "dependsOn": ["build:dev"],
+      "outputs": ["dist/**"],
       "cache": false,
       "persistent": true
     },
