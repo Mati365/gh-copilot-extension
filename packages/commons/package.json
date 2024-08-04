@@ -28,7 +28,7 @@
   },
   "scripts": {
     "build": "vite build --config ../../config/vite/vite.build.config.ts",
-    "test": "vitest --run --coverage --passWithNoTests --config ../../config/vite/vite.build.config.ts",
+    "test": "vitest --run --passWithNoTests --config ../../config/vite/vite.build.config.ts",
     "test:watch": "vitest --watch --passWithNoTests --config ../../config/vite/vite.build.config.ts",
     "lint": "eslint --max-warnings=0 src/ test/",
     "check:types": "tsc --noEmit"
