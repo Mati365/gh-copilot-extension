@@ -8,6 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   build: {
+    target: 'esnext',
     lib: {
       entry: 'src/index',
       fileName: 'index',

@@ -10,6 +10,8 @@
     "64": "images/icon-64.png",
     "128": "images/icon-128.png"
   },
+  "permissions": ["tabs", "activeTab", "identity", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
   "browser_specific_settings": {
     "gecko": {
       "id": "cziken58@gmail.com"

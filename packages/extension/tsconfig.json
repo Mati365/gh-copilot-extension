@@ -6,7 +6,7 @@
     "outDir": "./dist",
     "types": [
       "vitest/globals",
-      "chrome-types",
+      "@types/chrome",
       "@gh-copilot-ext/commons/test-utils/globals"
     ],
     "paths": {

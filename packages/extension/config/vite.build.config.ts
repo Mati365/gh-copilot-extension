@@ -14,7 +14,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         foreground: './src/foreground.ts',
-        serviceWorker: './src/serviceWorker.ts',
+        serviceWorker: './src/service-worker/index.ts',
       },
       output: {
         dir: 'dist',
