@@ -26,7 +26,8 @@
     "lint": "turbo lint --parallel",
     "prepare": "husky",
     "test": "turbo run test --parallel",
-    "test:watch": "turbo run test:watch --parallel"
+    "test:watch": "turbo run test:watch --parallel",
+    "start:firefox": "cd packages/extension && npm run start:firefox"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -75,5 +76,8 @@
     "vite-plugin-static-copy": "^1.0.6",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^2.0.1"
+  },
+  "dependencies": {
+    "web-ext": "^8.2.0"
   }
 }

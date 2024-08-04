@@ -30,6 +30,9 @@
     "test:watch": {
       "cache": false,
       "persistent": true
+    },
+    "start:firefox": {
+      "cache": false
     }
   },
   "globalDependencies": ["tsconfig.json", "prettier.config.mjs"]

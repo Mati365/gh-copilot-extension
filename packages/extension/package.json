@@ -1,0 +1,27 @@
+{
+  "name": "@gh-copilot-ext/extension",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "vite build --config ./config/vite.build.config.ts",
+    "build:dev": "NODE_ENV=development vite build --config ./config/vite.build.config.ts --mode development",
+    "test": "vitest --run --coverage --passWithNoTests --config ./config/vite.build.config.ts",
+    "test:watch": "vitest --watch --passWithNoTests --config ./config/vite.build.config.ts",
+    "lint": "(eslint --max-warnings=0 src/) && (web-ext lint --source-dir ./dist/ --pretty)",
+    "check:types": "tsc --noEmit",
+    "start:firefox": "web-ext run --source-dir ./dist/ --devtools"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "config/"
+  ],
+  "dependencies": {
+    "@gh-copilot-ext/commons": "*",
+    "@gh-copilot-ext/copilot-api": "*"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}
