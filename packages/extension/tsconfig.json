@@ -4,6 +4,11 @@
   "compilerOptions": {
     "baseUrl": "src",
     "outDir": "./dist",
+    "types": [
+      "vitest/globals",
+      "chrome-types",
+      "@gh-copilot-ext/commons/test-utils/globals"
+    ],
     "paths": {
       "@ast": ["kernel/ast"],
       "@ast/*": ["kernel/ast/*"],

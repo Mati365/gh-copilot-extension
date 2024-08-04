@@ -7,7 +7,7 @@ function getPackagesNonPrefixedNames(context) {
   const packages = getPackagesSync(cwd);
 
   return packages.packages.map(p =>
-    p.packageJson.name.replace('@gh-copilot-ext//', ''),
+    p.packageJson.name.replace('@gh-copilot-ext/', ''),
   );
 }
 
