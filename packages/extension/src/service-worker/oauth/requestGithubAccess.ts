@@ -18,15 +18,15 @@ const GITHUB_COPILOT_LANGUAGE_SERVER_CLIENT_ID = 'Iv1.b507a08c87ecfe98';
 /**
  * The storage for the OAuth token.
  */
-const oauthStorage = createMemoizedExtensionStorage<GithubAccessTokenResult>({
+const OAuthStorage = createMemoizedExtensionStorage<GithubAccessTokenResult>({
   duration: 3600 * 1000, // 1 hour
   key: 'ouath',
 });
 
 /**
- * Waits for the user to grant access to the GitHub OAuth application.
+ * Opens the browser and waits for the user to grant access to the GitHub OAuth application.
  */
-export const requestGithubAccess = pipe(
+const openBrowserAndDoGithubOAuth = pipe(
   getGithubOAuthVerificationUrl({
     clientId: GITHUB_COPILOT_LANGUAGE_SERVER_CLIENT_ID,
     scopes: ['read:user'],
@@ -38,6 +38,13 @@ export const requestGithubAccess = pipe(
       deviceCode,
     }),
   ),
-  oauthStorage.tryReadFromCacheFirst,
-  TE.map(({ value }) => value),
+);
+
+/**
+ * Waits for the user to grant access to the GitHub OAuth application.
+ */
+export const requestGithubAccess = pipe(
+  OAuthStorage.tryReadFromCacheFirst(openBrowserAndDoGithubOAuth),
+  TE.map(({ value }) => value.accessToken),
+  // TODO: Add refresh token support.
 );

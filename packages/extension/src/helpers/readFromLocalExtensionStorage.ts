@@ -18,12 +18,7 @@ export const readFromLocalExtensionStorage = <
   schema: S,
 ) =>
   pipe(
-    async (): Promise<
-      E.Either<
-        LocalExtensionStorageMissingValueError | LocalExtensionStorageReadError,
-        any
-      >
-    > => {
+    async (): Promise<E.Either<ReadFromLocalExtensionStorageError, any>> => {
       try {
         const result = await chrome.storage.local.get(name);
 
@@ -42,6 +37,13 @@ export const readFromLocalExtensionStorage = <
 /**
  * Represents an error that occurs during reading from local extension storage.
  */
+export type ReadFromLocalExtensionStorageError =
+  | LocalExtensionStorageReadError
+  | LocalExtensionStorageMissingValueError;
+
+/**
+ * Represents an error that occurs during reading from local extension storage.
+ */
 export class LocalExtensionStorageReadError extends TaggedError.ofLiteral<any>()(
   'LocalExtensionStorageReadError',
 ) {}
@@ -49,6 +51,6 @@ export class LocalExtensionStorageReadError extends TaggedError.ofLiteral<any>()
 /**
  * Represents an error that occurs when a value is missing in the local extension storage.
  */
-class LocalExtensionStorageMissingValueError extends TaggedError.ofLiteral<{
+export class LocalExtensionStorageMissingValueError extends TaggedError.ofLiteral<{
   name: string;
 }>()('LocalExtensionStorageMissingValueError') {}
