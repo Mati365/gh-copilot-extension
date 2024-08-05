@@ -1,4 +1,5 @@
-import { waitForGithubAccess } from './oauth';
+import { requestGithubAccess } from './oauth';
 
-// eslint-disable-next-line no-console
-waitForGithubAccess().then(console.info);
+chrome.runtime.onInstalled.addListener(() => {
+  requestGithubAccess();
+});

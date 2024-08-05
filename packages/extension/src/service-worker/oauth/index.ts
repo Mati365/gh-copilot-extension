@@ -1,1 +1,1 @@
-export * from './waitForGithubAccess';
+export * from './requestGithubAccess';
