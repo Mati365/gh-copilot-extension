@@ -4,6 +4,7 @@ import { pipe } from 'fp-ts/function';
 import { TaggedError } from '@gh-copilot-ext/commons';
 import {
   createGithubUrl,
+  isGithubUrl,
   type GithubVerificationUrlResult,
 } from '@gh-copilot-ext/copilot-api';
 
@@ -19,20 +20,25 @@ export const autofillGithubUserCode = ({
 }: GithubVerificationUrlResult) =>
   pipe(
     TE.fromTask(async () => {
-      await chrome.tabs.create({
+      const tab = await chrome.tabs.create({
         url: verificationUri,
         active: true,
       });
 
-      const tab = await waitForEnterDeviceCodePage();
+      if (!tab.id) {
+        throw new Error('Tab ID is not available');
+      }
 
-      await chrome.tabs.update(tab.id!, {
+      // Wait for the user to enter the device code page.
+      await waitForEnterDeviceCodePage(tab.id);
+      await chrome.tabs.update(tab.id, {
         active: true,
       });
 
+      // Autofill the user code.
       await chrome.scripting.executeScript({
         target: {
-          tabId: tab.id!,
+          tabId: tab.id,
           allFrames: true,
         },
         args: [userCode],
@@ -70,23 +76,57 @@ class AutofillGithubUserCodeError extends TaggedError.ofLiteral<Error>()(
  *
  * @returns A promise that resolves with the tab object representing the page where the user entered the device code.
  */
-const waitForEnterDeviceCodePage = () =>
-  new Promise<chrome.tabs.Tab>(resolve => {
-    const listener = (
-      tabId: number,
-      changeInfo: unknown,
+const waitForEnterDeviceCodePage = (tabId: number) =>
+  new Promise<chrome.tabs.Tab>((resolve, reject) => {
+    // Listen for the tab to be updated to the page where the user enters the device code.
+    const onTabUpdated = (
+      updatedTabId: number,
+      _: unknown,
       tab: chrome.tabs.Tab,
     ) => {
-      if (
-        tab.status === 'complete' &&
-        isGithubEnterDeviceCodeUrl(tab.url ?? '')
-      ) {
-        chrome.tabs.onUpdated.removeListener(listener);
+      if (updatedTabId !== tabId) {
+        return;
+      }
+
+      const url = tab.url ?? '';
+
+      // Ignore about:blank / non-http pages.
+      if (!url.startsWith('http')) {
+        return;
+      }
+
+      if (!isGithubUrl(url)) {
+        // The user was redirected to a non-GitHub page.
+        removeListeners();
+        reject(new Error('User was redirected to non-github page!'));
+      }
+
+      if (tab.status === 'complete' && isGithubEnterDeviceCodeUrl(url)) {
+        // The user is on the page where they enter the device code.
+        removeListeners();
         resolve(tab);
       }
     };
 
-    chrome.tabs.onUpdated.addListener(listener);
+    // Listen for the tab to be closed before the user enters the device code.
+    const onTabRemoved = (removedTabId: number) => {
+      if (removedTabId === tabId) {
+        removeListeners();
+        reject(
+          new Error(
+            'Tab was closed before the user could enter the device code',
+          ),
+        );
+      }
+    };
+
+    const removeListeners = () => {
+      chrome.tabs.onUpdated.removeListener(onTabUpdated);
+      chrome.tabs.onRemoved.removeListener(onTabRemoved);
+    };
+
+    chrome.tabs.onUpdated.addListener(onTabUpdated);
+    chrome.tabs.onRemoved.addListener(onTabRemoved);
   });
 
 /**
