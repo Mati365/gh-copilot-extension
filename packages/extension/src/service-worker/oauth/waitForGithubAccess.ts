@@ -9,7 +9,7 @@ import {
 import { autofillGithubUserCode } from './autofillGithubUserCode';
 
 /**
- * Just random numbers, hope they works.
+ * Just random numbers, hope they work :)
  */
 const GITHUB_COPILOT_LANGUAGE_SERVER_CLIENT_ID = 'Iv1.b507a08c87ecfe98';
 
